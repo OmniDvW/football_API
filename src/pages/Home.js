@@ -1,6 +1,6 @@
 import React from 'react';
 import Navbar from '../components/Navbar';
-import Countries from '../components/Countries';
+import Leagues from '../components/Leagues';
 
 
 
@@ -9,7 +9,7 @@ const Home = () => {
     return (
         <div>
             <Navbar />
-            <Countries />
+            <Leagues />
         </div>
     );
 };
