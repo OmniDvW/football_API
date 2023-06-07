@@ -1,35 +1,28 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useContext, useState } from 'react';
 import Navbar from '../../components/Navbar/Navbar';
 import Sidebar from '../../components/Sidebar/Sidebar';
-import { getCountries, getLeagues } from "../../services/api";
+import { ApiContext } from '../../context/apiContext';
 
 
 
 
 const Home = () => {
-    const [data, setData] = useState('');
+    const { apiData, fetchData } = useContext(ApiContext);
+    const [isMounted, setIsMounted] = useState(false);
 
 
     useEffect(() => {
-        getLeaguesFromAPI();
-    }, []);
+        !isMounted &&
+            fetchData();
+    }, [isMounted]);
 
-    const getLeaguesFromAPI = () => {
-        getLeagues()
-            .then(res => {
-                setData(res.response)
-                console.log(data)
-            })
-            .catch(err => {
-                console.log("oulalala")
-                console.error(err);
-            });
-    };
+
     return (
         <div>
             <Navbar />
             <Sidebar />
             <h1>home</h1>
+            <p>{apiData}</p>
         </div>
     );
 };
