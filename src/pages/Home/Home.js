@@ -7,14 +7,18 @@ import { ApiContext } from '../../context/apiContext';
 
 
 const Home = () => {
-    const { apiData, fetchData } = useContext(ApiContext);
-    const [isMounted, setIsMounted] = useState(false);
+    const { apiDataLeagues, fetchDataLeagues } = useContext(ApiContext);
+    const { apiDataCountries, fetchDataCountries } = useContext(ApiContext);
+    // const [isMounted, setIsMounted] = useState(false);
 
 
     useEffect(() => {
-        !isMounted &&
-            fetchData();
-    }, [isMounted]);
+        // !isMounted &&
+        fetchDataCountries();
+        fetchDataLeagues();
+        console.log(apiDataCountries)
+        console.log(apiDataLeagues)
+    }, []);
 
 
     return (
@@ -22,7 +26,7 @@ const Home = () => {
             <Navbar />
             <Sidebar />
             <h1>home</h1>
-            <p>{apiData}</p>
+            {/* <p>{apiData}</p> */}
         </div>
     );
 };

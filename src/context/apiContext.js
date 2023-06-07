@@ -1,24 +1,34 @@
 import React, { createContext, useState } from 'react';
-import { getLeagues } from "../services/api";
+import { getCountries, getLeagues } from "../services/api";
 
 const ApiContext = createContext();
 
 const ApiProvider = ({ children }) => {
-    const [apiData, setApiData] = useState(null);
+    const [apiDataCountries, setApiDataCountries] = useState([]);
+    const [apiDataLeagues, setApiDataLeagues] = useState([]);
 
 
-    const fetchData = () => {
-        getLeagues()
+    const fetchDataCountries = () => {
+        getCountries()
             .then(res => {
-                setApiData(res.response)
+                setApiDataCountries(res.response)
             })
             .catch(err => {
                 console.error(err);
-                setApiData("merde erreur")
+            });
+    };
+
+    const fetchDataLeagues = () => {
+        getLeagues()
+            .then(res => {
+                setApiDataLeagues(res.response)
+            })
+            .catch(err => {
+                console.error(err);
             });
     };
     return (
-        <ApiContext.Provider value={{ apiData, fetchData }}>
+        <ApiContext.Provider value={{ apiDataCountries, apiDataLeagues, fetchDataCountries, fetchDataLeagues }}>
             {children}
         </ApiContext.Provider>
     );
