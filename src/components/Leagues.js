@@ -4,27 +4,22 @@ import { getCountries, getLeagues } from "../api";
 const Leagues = () => {
     const [data, setData] = useState('');
 
-    useEffect(() => {
-        getCountries()
-            .then(res => {
-                const hello = res
-                console.log(hello.response)
-            })
-            .catch(err => {
-                console.error(err);
-                throw err;
-            });
 
+    useEffect(() => {
+        getLeaguesFromAPI();
+    }, []);
+
+    const getLeaguesFromAPI = () => {
         getLeagues()
             .then(res => {
-                const hello = res
-                console.log(hello.response)
+                setData(res.response)
+                console.log(data)
             })
             .catch(err => {
                 console.error(err);
                 throw err;
             });
-    }, []);
+    };
 
     return (
         <div>
