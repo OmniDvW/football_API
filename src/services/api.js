@@ -32,7 +32,6 @@ export const getLeagues = () => {
     return axios(config)
         .then(res => res.data)
         .catch(err => {
-            console.error(err);
             throw err;
         });
 };

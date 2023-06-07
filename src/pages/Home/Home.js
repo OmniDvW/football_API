@@ -1,7 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import { getCountries, getLeagues } from "../api";
+import Navbar from '../../components/Navbar/Navbar';
+import Sidebar from '../../components/Sidebar/Sidebar';
+import { getCountries, getLeagues } from "../../services/api";
 
-const Leagues = () => {
+
+
+
+const Home = () => {
     const [data, setData] = useState('');
 
 
@@ -16,16 +21,17 @@ const Leagues = () => {
                 console.log(data)
             })
             .catch(err => {
+                console.log("oulalala")
                 console.error(err);
-                throw err;
             });
     };
-
     return (
         <div>
-            <h1>hello</h1>
+            <Navbar />
+            <Sidebar />
+            <h1>home</h1>
         </div>
     );
 };
 
-export default Leagues;
+export default Home;
