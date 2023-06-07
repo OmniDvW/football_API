@@ -1,14 +1,29 @@
 import React, { useEffect, useState } from 'react';
-import api from "../api";
+import { getCountries, getLeagues } from "../api";
 
 const Leagues = () => {
     const [data, setData] = useState('');
 
     useEffect(() => {
-        api.getLeagues().then(res => {
-            const hello = res
-            console.log(hello.data.response[0])
-        })
+        getCountries()
+            .then(res => {
+                const hello = res
+                console.log(hello.response)
+            })
+            .catch(err => {
+                console.error(err);
+                throw err;
+            });
+
+        getLeagues()
+            .then(res => {
+                const hello = res
+                console.log(hello.response)
+            })
+            .catch(err => {
+                console.error(err);
+                throw err;
+            });
     }, []);
 
     return (
