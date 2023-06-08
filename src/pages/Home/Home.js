@@ -1,4 +1,4 @@
-import React, { useEffect, useContext, useState } from 'react';
+import React, { useEffect, useContext } from 'react';
 import Navbar from '../../components/Navbar/Navbar';
 import Sidebar from '../../components/Sidebar/Sidebar';
 import { ApiContext } from '../../context/apiContext';
@@ -7,26 +7,26 @@ import { ApiContext } from '../../context/apiContext';
 
 
 const Home = () => {
-    const { apiDataLeagues, fetchDataLeagues } = useContext(ApiContext);
-    const { apiDataCountries, fetchDataCountries } = useContext(ApiContext);
-    // const [isMounted, setIsMounted] = useState(false);
+    const { apiDataCountries, apiDataLeagues, fetchDataCountries, fetchDataLeagues } = useContext(ApiContext);
 
 
     useEffect(() => {
-        // !isMounted &&
         fetchDataCountries();
         fetchDataLeagues();
-        console.log(apiDataCountries)
-        console.log(apiDataLeagues)
     }, []);
 
 
     return (
-        <div>
+        <div className='home'>
             <Navbar />
-            <Sidebar />
-            <h1>home</h1>
-            {/* <p>{apiData}</p> */}
+            <div className="home_container">
+                <div className="home_container_content">
+                    <Sidebar />
+                    <div className="info_card">
+
+                    </div>
+                </div>
+            </div>
         </div>
     );
 };

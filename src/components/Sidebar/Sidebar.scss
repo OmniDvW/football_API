@@ -2,8 +2,11 @@
 
 
 .sidebar {
+    background-color: pink;
+
     ul {
         display: flex;
+        flex-direction: column;
         margin: 30px;
 
         a {
