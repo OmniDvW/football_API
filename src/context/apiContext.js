@@ -35,7 +35,7 @@ const ApiProvider = ({ children }) => {
     };
 
     const fetchDataStandings = (id) => {
-        getStandings()
+        getStandings(id)
             .then(res => {
                 setApiDataStandings(res.response)
                 console.log(res)

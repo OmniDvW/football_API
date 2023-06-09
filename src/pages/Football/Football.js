@@ -3,6 +3,7 @@ import { useParams, useLocation } from 'react-router-dom';
 import { ApiContext } from '../../context/apiContext';
 import Navbar from '../../components/Navbar/Navbar';
 import Sidebar from '../../components/Sidebar/Sidebar';
+import LeagueCard from '../../components/LeagueCard/LeagueCard';
 
 
 const Football = () => {
@@ -11,9 +12,15 @@ const Football = () => {
     const location = useLocation();
     const { apiDataCountries, apiDataLeagues, apiDataStandings, fetchDataStandings } = useContext(ApiContext);
 
+
     useEffect(() => {
-        fetchDataStandings(id);
-        console.log(apiDataStandings)
+        const fetchData = async () => {
+            await fetchDataStandings(id);
+            console.log(apiDataStandings);
+        };
+        fetchData();
+
+
     }, [location]);
 
     return (
@@ -22,7 +29,13 @@ const Football = () => {
             <Sidebar />
             <h1>Composant avec paramètre</h1>
             <p>Paramètre reçu : {id}</p>
-            <p>league: {apiDataStandings[0].league.name}</p>
+
+            {apiDataStandings.length === 0 ? (
+                <p>Le tableau est vide.</p>
+            ) : (
+                <LeagueCard />
+            )}
+
 
         </div>
     );
