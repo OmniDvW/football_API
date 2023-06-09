@@ -46,10 +46,10 @@ export const getStandings = () => {
             'X-RapidAPI-Key': process.env.REACT_APP_API_KEY,
             'X-RapidAPI-Host': process.env.REACT_APP_API_HOST
         },
-        'params': {
-            'season': '2022',
-            'league': '39'
-        },
+        // 'params': {
+        //     'season': '2022',
+        //     'league': '39'
+        // },
 
     };
 

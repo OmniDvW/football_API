@@ -1,0 +1,12 @@
+[
+    {
+        "name": "france",
+        "code": "FR",
+        "flag": "https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg"
+    },
+    {
+        "name": "angleterre",
+        "code": "EN",
+        "flag": "https://upload.wikimedia.org/wikipedia/commons/b/be/Flag_of_England.svg"
+    }
+]

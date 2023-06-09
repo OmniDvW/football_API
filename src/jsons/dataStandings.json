@@ -1,0 +1,49 @@
+[
+    {
+        "league": {
+            "id": 61,
+            "name": "Ligue 1",
+            "country": "france",
+            "code": "FR",
+            "flag": "https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg"
+        },
+        "season": {
+            "result": null
+        }
+    },
+    {
+        "league": {
+            "id": 62,
+            "name": "Ligue 2",
+            "country": "france",
+            "code": "FR",
+            "flag": "https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg"
+        },
+        "season": {
+            "result": null
+        }
+    },
+    {
+        "league": {
+            "id": 103,
+            "name": "Premier League",
+            "country": "angleterre",
+            "code": "EN",
+            "flag": "https://upload.wikimedia.org/wikipedia/commons/b/be/Flag_of_England.svg"
+        },
+        "season": {
+            "result": null
+        }
+    },
+    {
+        "league": {
+            "id": 104,
+            "name": "Championship",
+            "code": "EN",
+            "flag": "https://upload.wikimedia.org/wikipedia/commons/b/be/Flag_of_England.svg"
+        },
+        "season": {
+            "result": null
+        }
+    }
+]

@@ -1,5 +1,8 @@
 import React, { createContext, useState } from 'react';
 import { getCountries, getLeagues, getStandings } from "../services/api";
+import dataCountries from "../jsons/dataCountries.json";
+import dataLeagues from "../jsons/dataLeagues.json";
+import dataStandings from "../jsons/dataStandings.json";
 
 const ApiContext = createContext();
 
@@ -15,16 +18,7 @@ const ApiProvider = ({ children }) => {
                 setApiDataCountries(res.response)
             })
             .catch(err => {
-                setApiDataCountries([
-                    {
-                        name: "france",
-                        code: "FR"
-                    },
-                    {
-                        name: "angleterre",
-                        code: "EN"
-                    }
-                ])
+                setApiDataCountries(dataCountries)
                 console.error(err);
             });
     };
@@ -35,58 +29,20 @@ const ApiProvider = ({ children }) => {
                 setApiDataLeagues(res.response)
             })
             .catch(err => {
-                setApiDataLeagues([
-                    {
-                        name: "ligue 1",
-                        country:
-                        {
-                            name: "france",
-                            code: "FR"
-                        }
-
-                    },
-                    {
-                        name: "ligue 2",
-                        country: [
-                            {
-                                name: "france",
-                                code: "FR"
-                            }
-
-                        ]
-                    },
-                    {
-                        name: "premier league",
-                        country: [
-                            {
-                                name: "angleterre",
-                                code: "EN"
-                            }
-
-                        ]
-                    }
-                ])
+                setApiDataLeagues(dataLeagues)
                 console.error(err);
             });
     };
 
-    const fetchDataStandings = () => {
+    const fetchDataStandings = (id) => {
         getStandings()
             .then(res => {
                 setApiDataStandings(res.response)
                 console.log(res)
             })
             .catch(err => {
-                setApiDataStandings([
-                    {
-                        id: 51,
-                        name: "ligue 1 stand"
-                    },
-                    {
-                        id: 36,
-                        name: "premier league stand"
-                    }
-                ])
+                const result = dataStandings.filter(data => data.league.id == id);
+                setApiDataStandings(result);
                 console.error(err);
             });
     };

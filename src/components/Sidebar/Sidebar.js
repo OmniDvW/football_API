@@ -4,6 +4,7 @@ import { ApiContext } from '../../context/apiContext';
 import "./Sidebar.scss"
 
 const Sidebar = () => {
+
     const { apiDataCountries, apiDataLeagues } = useContext(ApiContext);
     const [openIndexes, setOpenIndexes] = useState([]);
 
@@ -15,7 +16,7 @@ const Sidebar = () => {
                 return [index];
             }
         });
-    };
+    }
 
 
     return (
@@ -33,7 +34,7 @@ const Sidebar = () => {
                                 {apiDataLeagues.map((dataLeague, linkIndex) => (
                                     dataLeague.country.name == dataCountry.name ? (
                                         <li key={linkIndex}>
-                                            <NavLink to={`/${dataLeague.country.name}/${dataLeague.league.name.replace(/\s/g, '')}`} className="dropdown-item">
+                                            <NavLink to={`/${dataLeague.country.name}/${dataLeague.league.name.replace(/\s/g, '')}/${dataLeague.league.id}`} className="dropdown-item">
                                                 {dataLeague.league.name}
                                             </NavLink>
                                         </li>

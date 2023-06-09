@@ -12,7 +12,6 @@ const App = () => {
   useEffect(() => {
     fetchDataCountries();
     fetchDataLeagues();
-    fetchDataStandings();
   }, []);
 
   return (
@@ -22,7 +21,7 @@ const App = () => {
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           {apiDataLeagues.map((data, index) => (
-            <Route key={index} path={`/${data.country.name}/${data.league.name.replace(/\s/g, '')}`} element={<Football />} />
+            <Route key={index} path={`/${data.country.name}/${data.league.name.replace(/\s/g, '')}/:id`} element={<Football />} />
           ))}
           <Route path="*" element={<Home />} />
         </Routes>

@@ -2,6 +2,7 @@
 
 
 .sidebar {
+    grid-column: 1 / 1;
     background-color: pink;
 
     // ul {
@@ -66,8 +67,8 @@
         background-color: red;
 
         img {
-            height: 2rem;
-            width: 2rem;
+            height: 1rem;
+            width: 1rem;
         }
     }
 
