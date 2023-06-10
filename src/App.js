@@ -7,11 +7,12 @@ import { ApiContext } from './context/apiContext';
 
 
 const App = () => {
-  const { apiDataLeagues, fetchDataCountries, fetchDataLeagues, fetchDataStandings } = useContext(ApiContext);
+  const { apiDataLeagues, fetchDataCountries, fetchDataLeagues, fetchDataSeasons } = useContext(ApiContext);
 
   useEffect(() => {
     fetchDataCountries();
     fetchDataLeagues();
+    fetchDataSeasons();
   }, []);
 
   return (

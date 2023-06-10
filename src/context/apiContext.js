@@ -1,7 +1,8 @@
 import React, { createContext, useState } from 'react';
-import { getCountries, getLeagues, getStandings } from "../services/api";
+import { getCountries, getLeagues, getSeasons, getStandings } from "../services/api";
 import dataCountries from "../jsons/dataCountries.json";
 import dataLeagues from "../jsons/dataLeagues.json";
+import dataSeasons from "../jsons/dataSeasons.json";
 import dataStandings from "../jsons/dataStandings.json";
 
 const ApiContext = createContext();
@@ -9,6 +10,7 @@ const ApiContext = createContext();
 const ApiProvider = ({ children }) => {
     const [apiDataCountries, setApiDataCountries] = useState([]);
     const [apiDataLeagues, setApiDataLeagues] = useState([]);
+    const [apiDataSeasons, setApiDataSeasons] = useState([]);
     const [apiDataStandings, setApiDataStandings] = useState([]);
 
 
@@ -34,6 +36,17 @@ const ApiProvider = ({ children }) => {
             });
     };
 
+    const fetchDataSeasons = () => {
+        getSeasons()
+            .then(res => {
+                setApiDataSeasons(res.response)
+            })
+            .catch(err => {
+                setApiDataSeasons(dataSeasons)
+                console.error(err);
+            });
+    };
+
     const fetchDataStandings = (id) => {
         getStandings(id)
             .then(res => {
@@ -47,7 +60,7 @@ const ApiProvider = ({ children }) => {
             });
     };
     return (
-        <ApiContext.Provider value={{ apiDataCountries, apiDataLeagues, apiDataStandings, fetchDataCountries, fetchDataLeagues, fetchDataStandings }}>
+        <ApiContext.Provider value={{ apiDataCountries, apiDataLeagues, apiDataSeasons, apiDataStandings, fetchDataCountries, fetchDataLeagues, fetchDataSeasons, fetchDataStandings }}>
             {children}
         </ApiContext.Provider>
     );
