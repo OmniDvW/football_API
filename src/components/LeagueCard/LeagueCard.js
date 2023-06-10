@@ -1,13 +1,9 @@
 import React, { useEffect, useState, useContext } from 'react';
-import { useLocation } from 'react-router-dom';
 import { ApiContext } from '../../context/apiContext';
 
 const LeagueCard = () => {
 
-    // const { id } = useParams();
-    const location = useLocation();
     const { apiDataCountries, apiDataLeagues, apiDataStandings } = useContext(ApiContext);
-    const [openIndexes, setOpenIndexes] = useState([]);
 
 
     return (

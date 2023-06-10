@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useContext } from 'react';
+import React, { useEffect, useContext } from 'react';
 import { useParams, useLocation } from 'react-router-dom';
 import { ApiContext } from '../../context/apiContext';
 import Navbar from '../../components/Navbar/Navbar';
@@ -31,7 +31,7 @@ const Football = () => {
             <p>Paramètre reçu : {id}</p>
 
             {apiDataStandings.length === 0 ? (
-                <p>Le tableau est vide.</p>
+                <p>erreur</p>
             ) : (
                 <LeagueCard />
             )}

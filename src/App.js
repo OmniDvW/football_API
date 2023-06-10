@@ -21,8 +21,8 @@ const App = () => {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
-          {apiDataLeagues.map((data, index) => (
-            <Route key={index} path={`/${data.country.name}/${data.league.name.replace(/\s/g, '')}/:id`} element={<Football />} />
+          {apiDataLeagues.map((data) => (
+            <Route key={data.league.id} path="/:country/:league/:id" element={<Football />} />
           ))}
           <Route path="*" element={<Home />} />
         </Routes>
