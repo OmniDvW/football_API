@@ -8,20 +8,25 @@ import LeagueCard from '../../components/LeagueCard/LeagueCard';
 
 const Football = () => {
 
-    const { id } = useParams();
+    const { id, type } = useParams();
     const location = useLocation();
-    const { apiDataCountries, apiDataLeagues, apiDataStandings, fetchDataStandings } = useContext(ApiContext);
+    const { apiDataCountries, apiDataLeagues, apiDataStandings, apiDataFixturesRounds, fetchDataStandings, fetchDataFixturesRounds } = useContext(ApiContext);
 
 
     useEffect(() => {
-        const fetchData = async () => {
-            await fetchDataStandings(id);
-            console.log(apiDataStandings);
-        };
-        fetchData();
-
-
+        fetchStandings();
+        if (type == "Cup") {
+            fetchFixturesRounds();
+        }
     }, [location]);
+
+    const fetchStandings = async () => {
+        await fetchDataStandings(id);
+    };
+
+    const fetchFixturesRounds = async () => {
+        await fetchDataFixturesRounds(id);
+    };
 
     return (
         <div>
@@ -35,8 +40,6 @@ const Football = () => {
             ) : (
                 <LeagueCard />
             )}
-
-
         </div>
     );
 };

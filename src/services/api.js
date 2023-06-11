@@ -78,3 +78,25 @@ export const getStandings = (id) => {
         });
 };
 
+export const getFixturesRounds = (id) => {
+    const config = {
+        'method': 'GET',
+        'url': 'https://api-football-beta.p.rapidapi.com/fixtures/rounds',
+        'headers': {
+            'X-RapidAPI-Key': process.env.REACT_APP_API_KEY,
+            'X-RapidAPI-Host': process.env.REACT_APP_API_HOST
+        },
+        'params': {
+            'season': '2022',
+            'league': id
+        },
+
+    };
+
+    return axios(config)
+        .then(res => res.data)
+        .catch(err => {
+            throw err;
+        });
+};
+

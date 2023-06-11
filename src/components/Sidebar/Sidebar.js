@@ -34,7 +34,7 @@ const Sidebar = () => {
                                 {apiDataLeagues.map((dataLeague, linkIndex) => (
                                     dataLeague.country.name == dataCountry.name ? (
                                         <li key={linkIndex}>
-                                            <NavLink to={`/${dataLeague.country.name}/${dataLeague.league.name.replace(/\s/g, '')}/${dataLeague.league.id}`} className="dropdown-item">
+                                            <NavLink to={`/${dataLeague.country.name}/${dataLeague.league.name.replace(/\s/g, '')}/${dataLeague.league.type}/${dataLeague.league.id}`} className="dropdown-item">
                                                 {dataLeague.league.name}
                                             </NavLink>
                                         </li>

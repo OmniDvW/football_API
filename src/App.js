@@ -22,7 +22,7 @@ const App = () => {
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           {apiDataLeagues.map((data) => (
-            <Route key={data.league.id} path="/:country/:league/:id" element={<Football />} />
+            <Route key={data.league.id} path="/:country/:league/:type/:id" element={<Football />} />
           ))}
           <Route path="*" element={<Home />} />
         </Routes>
