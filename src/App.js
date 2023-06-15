@@ -4,6 +4,7 @@ import Navbar from './components/Navbar/Navbar';
 import Sidebar from './components/Sidebar/Sidebar';
 import Home from "./pages/Home/Home";
 import About from "./pages/About/About";
+import Competitions from "./pages/Competitions/Competitions";
 import Football from "./pages/Football/Football";
 import { ApiContext } from './context/apiContext';
 import moment from 'moment';
@@ -32,6 +33,7 @@ const App = () => {
           {apiDataLeagues.map((data) => (
             <Route key={data.league.id} path="/:country/:league/:type/:id" element={<Football />} />
           ))}
+          <Route path="/competitions" element={<Competitions />} />
           <Route path="*" element={<Home />} />
         </Routes>
       </BrowserRouter>

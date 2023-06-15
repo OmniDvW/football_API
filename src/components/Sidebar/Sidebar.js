@@ -22,7 +22,7 @@ const Sidebar = () => {
     return (
         <div className="sidebar">
             <div className="sidebar_menu">
-                {apiDataCountries.map((dataCountry, index) => (
+                {/* {apiDataCountries.map((dataCountry, index) => (
                     <div key={index} className="sidebar_menu_button">
                         <button
                             className={`dropdown-toggle ${openIndexes.includes(index) ? 'active' : ''}`}
@@ -44,6 +44,29 @@ const Sidebar = () => {
                         )}
                     </div>
                 ))}
+ */}
+
+                <ul>
+                    {apiDataLeagues
+                        .filter(dataLeague => [1, 2, 3, 39, 61, 62, 71, 78, 140].includes(dataLeague.league.id))
+                        .sort((a, b) => a.league.id - b.league.id)
+                        .map((dataLeague, index) => (
+                            <li key={index}>
+                                <NavLink
+                                    to={`/${dataLeague.country.name}/${dataLeague.league.name.replace(/\s/g, '')}/${dataLeague.league.type}/${dataLeague.league.id}`}
+                                    className="sidebar_menu_link"
+                                >
+                                    {dataLeague.league.name}
+                                </NavLink>
+                            </li>
+                        ))}
+                    <li>
+                        <NavLink to="/competitions" className="">
+                            More competitions
+                        </NavLink>
+                    </li>
+                </ul>
+
             </div>
         </div>
     );
