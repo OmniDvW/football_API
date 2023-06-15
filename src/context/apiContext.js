@@ -1,11 +1,12 @@
 import React, { createContext, useState } from 'react';
-import { getCountries, getLeagues, getSeasons, getStandings, getFixturesRounds, getFixtures } from "../services/api";
+import { getCountries, getLeagues, getSeasons, getStandings, getFixturesRounds, getFixtures, getFixturesCup } from "../services/api";
 import dataCountries from "../jsons/dataCountries.json";
 import dataLeagues from "../jsons/dataLeagues.json";
 import dataSeasons from "../jsons/dataSeasons.json";
 import dataStandings from "../jsons/dataStandings.json";
 import dataFixturesRounds from "../jsons/dataFixturesRounds.json";
 import dataFixtures from "../jsons/dataFixtures.json";
+import dataFixturesCup from "../jsons/dataFixturesCup.json";
 
 const ApiContext = createContext();
 
@@ -16,6 +17,7 @@ const ApiProvider = ({ children }) => {
     const [apiDataStandings, setApiDataStandings] = useState([]);
     const [apiDataFixturesRounds, setApiDataFixturesRounds] = useState([]);
     const [apiDataFixtures, setApiDataFixtures] = useState([]);
+    const [apiDataFixturesCup, setApiDataFixturesCup] = useState([]);
 
 
     const fetchDataCountries = () => {
@@ -55,7 +57,6 @@ const ApiProvider = ({ children }) => {
         getStandings(id)
             .then(res => {
                 setApiDataStandings(res.response)
-                console.log(res)
             })
             .catch(err => {
                 const result = dataStandings.filter(data => data.league.id == id);
@@ -68,7 +69,6 @@ const ApiProvider = ({ children }) => {
         getFixturesRounds(id)
             .then(res => {
                 setApiDataFixturesRounds(res.response)
-                console.log(res)
             })
             .catch(err => {
                 setApiDataFixturesRounds(dataFixturesRounds);
@@ -80,7 +80,6 @@ const ApiProvider = ({ children }) => {
         getFixtures(date)
             .then(res => {
                 setApiDataFixtures(res.response)
-                console.log(res)
             })
             .catch(err => {
                 setApiDataFixtures(dataFixtures);
@@ -88,8 +87,23 @@ const ApiProvider = ({ children }) => {
             });
     };
 
+    const fetchDataFixturesCup = (league, season) => {
+        getFixturesCup(league, season)
+            .then(res => {
+                setApiDataFixturesCup(res.response)
+            })
+            .catch(err => {
+                setApiDataFixturesCup(dataFixturesCup);
+                console.error(err);
+            });
+    };
+
+
     return (
-        <ApiContext.Provider value={{ apiDataCountries, apiDataLeagues, apiDataSeasons, apiDataStandings, apiDataFixturesRounds, apiDataFixtures, fetchDataCountries, fetchDataLeagues, fetchDataSeasons, fetchDataStandings, fetchDataFixturesRounds, fetchDataFixtures }}>
+        <ApiContext.Provider value={{
+            apiDataCountries, apiDataLeagues, apiDataSeasons, apiDataStandings, apiDataFixturesRounds, apiDataFixtures, apiDataFixturesCup,
+            fetchDataCountries, fetchDataLeagues, fetchDataSeasons, fetchDataStandings, fetchDataFixturesRounds, fetchDataFixtures, fetchDataFixturesCup
+        }}>
             {children}
         </ApiContext.Provider>
     );

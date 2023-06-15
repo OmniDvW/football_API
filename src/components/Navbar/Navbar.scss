@@ -2,55 +2,81 @@
 
 
 .navbar {
-    background-color: green;
+    overflow: hidden;
+    background-color: #333;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5rem;
 
-    ul {
+
+    header {
+        height: 100%;
+        width: 100%;
         display: flex;
-        margin: 30px;
+        justify-content: center;
+        align-items: center;
 
-        a {
+        .home-logo {
             text-decoration: none;
-            padding: 10px;
+            color: $color-white;
 
-            li {
-                color: yellow;
-                transition: 0.2s;
-                cursor: pointer;
-
-                &:hover {
-                    color: red;
-                }
+            .logo {
+                font-size: 2rem;
             }
         }
 
-        .nav-active {
-            position: relative;
 
-            &::after {
-                content: "";
-                height: 4px;
-                width: 0;
-                background: purple;
-                position: absolute;
-                border-radius: 10px;
-                bottom: 0px;
-                left: 50%;
-                transform: translateX(-50%);
-                -webkit-animation: anim 0.3s ease forwards;
-                animation: anim 0.6s ease forwards;
-
-                @-webkit-keyframes anim {
-                    to {
-                        width: 100%;
-                    }
-                }
-
-                @keyframes anim {
-                    to {
-                        width: 100%;
-                    }
-                }
-            }
-        }
     }
+
+    // ul {
+    //     display: flex;
+    //     margin: 30px;
+
+    //     a {
+    //         text-decoration: none;
+    //         padding: 10px;
+
+    //         li {
+    //             color: yellow;
+    //             transition: 0.2s;
+    //             cursor: pointer;
+
+    //             &:hover {
+    //                 color: red;
+    //             }
+    //         }
+    //     }
+
+    //     .nav-active {
+    //         position: relative;
+
+    //         &::after {
+    //             content: "";
+    //             height: 4px;
+    //             width: 0;
+    //             background: purple;
+    //             position: absolute;
+    //             border-radius: 10px;
+    //             bottom: 0px;
+    //             left: 50%;
+    //             transform: translateX(-50%);
+    //             -webkit-animation: anim 0.3s ease forwards;
+    //             animation: anim 0.6s ease forwards;
+
+    //             @-webkit-keyframes anim {
+    //                 to {
+    //                     width: 100%;
+    //                 }
+    //             }
+
+    //             @keyframes anim {
+    //                 to {
+    //                     width: 100%;
+    //                 }
+    //             }
+    //         }
+    //     }
+    // }
 }

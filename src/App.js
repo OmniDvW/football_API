@@ -1,14 +1,17 @@
 import React, { useEffect, useContext } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Navbar from './components/Navbar/Navbar';
+import Sidebar from './components/Sidebar/Sidebar';
 import Home from "./pages/Home/Home";
 import About from "./pages/About/About";
 import Football from "./pages/Football/Football";
 import { ApiContext } from './context/apiContext';
 import moment from 'moment';
+import "./styles/app.scss";
 
 
 const App = () => {
-  const { apiDataLeagues, apiDataFixtures, fetchDataCountries, fetchDataLeagues, fetchDataSeasons, fetchDataFixtures } = useContext(ApiContext);
+  const { apiDataLeagues, fetchDataCountries, fetchDataLeagues, fetchDataSeasons, fetchDataFixtures } = useContext(ApiContext);
   const date = moment().format('YYYY-MM-DD');
 
   useEffect(() => {
@@ -16,12 +19,13 @@ const App = () => {
     fetchDataLeagues();
     fetchDataSeasons();
     fetchDataFixtures(date); //recherche aussi par id de league ou par round par saison par id de fixture
-    console.log(date);
   }, []);
 
   return (
-    <div>
+    <div className='app-wrapper'>
       <BrowserRouter>
+        <Navbar />
+        <Sidebar />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />

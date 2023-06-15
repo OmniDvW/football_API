@@ -1,9 +1,9 @@
 import React, { useEffect, useContext } from 'react';
 import { useParams, useLocation } from 'react-router-dom';
 import { ApiContext } from '../../context/apiContext';
-import Navbar from '../../components/Navbar/Navbar';
-import Sidebar from '../../components/Sidebar/Sidebar';
 import LeagueCard from '../../components/LeagueCard/LeagueCard';
+import CupCard from '../../components/CupCard/CupCard';
+import "./Football.scss";
 
 
 const Football = () => {
@@ -28,15 +28,14 @@ const Football = () => {
         await fetchDataFixturesRounds(id);
     };
 
+
     return (
-        <div>
-            <Navbar />
-            <Sidebar />
+        <div className='footballInfo'>
             <h1>Composant avec paramètre</h1>
             <p>Paramètre reçu : {id}</p>
 
-            {apiDataStandings.length === 0 ? (
-                <p>erreur</p>
+            {type === "Cup" ? (
+                <CupCard />
             ) : (
                 <LeagueCard />
             )}

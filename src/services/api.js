@@ -121,3 +121,25 @@ export const getFixtures = (date) => {
         });
 };
 
+export const getFixturesCup = (league, season) => {
+    const config = {
+        'method': 'GET',
+        'url': 'https://api-football-beta.p.rapidapi.com/fixtures',
+        'headers': {
+            'X-RapidAPI-Key': process.env.REACT_APP_API_KEY,
+            'X-RapidAPI-Host': process.env.REACT_APP_API_HOST
+        },
+        'params': {
+            "season": season,
+            "league": league,
+        },
+
+    };
+
+    return axios(config)
+        .then(res => res.data)
+        .catch(err => {
+            throw err;
+        });
+};
+
