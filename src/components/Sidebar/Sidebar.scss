@@ -16,19 +16,17 @@
         flex-direction: column;
     }
 
-    .sidebar_menu_button {
-        button {
-            background-color: red;
+    .sidebar_menu_link {
 
-            img {
-                height: 1rem;
-                width: 1rem;
-            }
+        text-decoration: none;
+
+
+        img {
+            height: 1rem;
+            width: 1.5rem;
         }
 
-        ul {
 
-            li {}
-        }
+
     }
 }

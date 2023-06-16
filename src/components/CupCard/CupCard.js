@@ -9,7 +9,7 @@ const CupCard = () => {
     const { apiDataCountries, apiDataLeagues, apiDataStandings, fetchDataFixturesCup } = useContext(ApiContext);
 
     useEffect(() => {
-        fetchDataFixturesCup(id, "2022");
+        fetchDataFixturesCup(id, 2022);
     }, [location]);
 
     return (

@@ -18,8 +18,8 @@ const App = () => {
   useEffect(() => {
     fetchDataCountries();
     fetchDataLeagues();
-    fetchDataSeasons();
-    fetchDataFixtures(date); //recherche aussi par id de league ou par round par saison par id de fixture
+    // fetchDataSeasons();
+    fetchDataFixtures(date);
   }, []);
 
   return (
