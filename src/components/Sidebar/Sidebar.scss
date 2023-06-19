@@ -8,7 +8,7 @@
     position: fixed;
     top: 0;
     left: 0;
-    width: 15rem;
+    width: 18rem;
     height: 100vh;
     transition: transform 0.3s ease;
 
@@ -17,23 +17,63 @@
     @media (max-width: 576px) {}
 
 
-    .sidebar_menu {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
+    .sidebar-menu {
+        height: 100vh;
+        width: 100%;
+        display: grid;
+        grid-template-rows: 5rem 30vh 1fr 5rem;
 
-        .sidebar_menu_top {
-            background-color: red;
-            height: 30vh;
-            width: 80%;
-            border-bottom: 1.5px solid black;
+        .sidebar-menu-header {
+            height: 5rem;
+            width: 100%;
+            background-color: green;
+            grid-row: 1 / 2;
+            padding: 2rem;
+
+            .sidebar-menu-logo {
+
+                text-decoration: none;
+                color: $color-white;
+
+                h1 {
+                    font-size: 1.5rem;
+                }
+            }
         }
 
-        .sidebar_menu_bottom {
-            align-items: flex-start;
-            flex-direction: column;
+
+        .sidebar-menu-top {
+            grid-row: 2 / 3;
+            height: 30vh;
+            width: 100%;
+            background-color: purple;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
 
             ul {
+                height: 100%;
+                width: 80%;
+                background-color: orange;
+                border-bottom: 1.5px solid black;
+            }
+        }
+
+        .sidebar-menu-bottom {
+            grid-row: 3 / 4;
+            // margin-top: 2rem;
+            height: 100%;
+            width: 100%;
+            display: flex;
+            padding: 2rem;
+            flex-direction: column;
+            background-color: red;
+            // justify-content: center;
+            // align-items: center;
+
+            ul {
+
                 li {
                     text-decoration: none;
 
@@ -43,9 +83,16 @@
                 }
             }
         }
+
+        .sidebar-menu-footer {
+            grid-row: 4 / 5;
+            height: 5rem;
+            width: 100%;
+            background-color: pink;
+        }
     }
 
-    .sidebar_menu_link {
+    .sidebar-menu-link {
 
         text-decoration: none;
 

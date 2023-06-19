@@ -9,16 +9,17 @@ const Sidebar = ({ isOpen }) => {
 
     return (
         <div className={`sidebar ${isOpen ? 'open' : 'closed'}`}>
-            <div className="sidebar_menu">
-                <div>
-                    <NavLink to="/" className="home-logo">
-                        <h1 className="logo">OMNIFOOT</h1>
+            <div className="sidebar-menu">
+                <div className="sidebar-menu-header">
+                    <NavLink to="/" className="sidebar-menu-logo">
+                        <h1>OMNIFOOT</h1>
                     </NavLink>
+                    {/* <div>
+                        <p>search</p>
+                    </div> */}
                 </div>
-                <div>
-                    <p>search</p>
-                </div>
-                <div className="sidebar_menu_top">
+
+                <div className="sidebar-menu-top">
                     <ul>
                         <li>
                             <p>match</p>
@@ -28,7 +29,8 @@ const Sidebar = ({ isOpen }) => {
                         </li>
                     </ul>
                 </div>
-                <div className='sidebar_menu_bottom'>
+
+                <div className='sidebar-menu-bottom'>
                     <p>Top competitions</p>
                     <ul>
                         {apiDataLeagues
@@ -38,9 +40,9 @@ const Sidebar = ({ isOpen }) => {
                                 <li key={index}>
                                     <NavLink
                                         to={`/${dataLeague.country.name}/${dataLeague.league.name.replace(/\s/g, '')}/${dataLeague.league.type}/${dataLeague.league.id}`}
-                                        className="sidebar_menu_link"
+                                        className="sidebar-menu-link"
                                     >
-                                        <img src={dataLeague.country.flag} alt="" /><span>{dataLeague.league.name}</span>
+                                        <img src={dataLeague.country.flag ? dataLeague.country.flag : "/worldmap.png"} alt="" /><span>{dataLeague.league.name}</span>
                                     </NavLink>
                                 </li>
                             ))}
@@ -52,6 +54,9 @@ const Sidebar = ({ isOpen }) => {
                     </ul>
                 </div>
 
+                <div className='sidebar-menu-footer'>
+
+                </div>
             </div>
         </div>
     );
