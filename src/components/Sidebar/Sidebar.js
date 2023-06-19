@@ -3,12 +3,12 @@ import { NavLink } from 'react-router-dom';
 import { ApiContext } from '../../context/apiContext';
 import "./Sidebar.scss"
 
-const Sidebar = () => {
+const Sidebar = ({ isOpen }) => {
 
     const { apiDataLeagues } = useContext(ApiContext);
 
     return (
-        <div className="sidebar">
+        <div className={`sidebar ${isOpen ? 'open' : 'closed'}`}>
             <div className="sidebar_menu">
                 <div>
                     <NavLink to="/" className="home-logo">

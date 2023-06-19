@@ -1,12 +1,17 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
-import "./Navbar.scss"
+import "./Navbar.scss";
+import MenuIcon from '@mui/icons-material/Menu';
 
-const Navbar = () => {
+const Navbar = ({ handleToggleSidebar }) => {
+
     return (
         <div className="navbar">
             <header>
                 <div className="menu-burger">
+                    <button className="hamburger" onClick={handleToggleSidebar}>
+                        <MenuIcon />
+                    </button>
 
                 </div>
                 <NavLink to="/" className="home-logo">
