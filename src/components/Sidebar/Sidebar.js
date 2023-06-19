@@ -10,7 +10,15 @@ const Sidebar = () => {
     return (
         <div className="sidebar">
             <div className="sidebar_menu">
-                <div className="sidebar_menu_head">
+                <div>
+                    <NavLink to="/" className="home-logo">
+                        <h1 className="logo">OMNIFOOT</h1>
+                    </NavLink>
+                </div>
+                <div>
+                    <p>search</p>
+                </div>
+                <div className="sidebar_menu_top">
                     <ul>
                         <li>
                             <p>match</p>
@@ -20,7 +28,7 @@ const Sidebar = () => {
                         </li>
                     </ul>
                 </div>
-                <div>
+                <div className='sidebar_menu_bottom'>
                     <p>Top competitions</p>
                     <ul>
                         {apiDataLeagues

@@ -9,6 +9,13 @@
     left: 0;
     width: 100%;
     height: 5rem;
+    display: none;
+
+    @media (max-width: 992px) {
+        display: block;
+    }
+
+    @media (max-width: 576px) {}
 
 
     header {
@@ -29,6 +36,29 @@
 
 
     }
+
+
+    /* ////////////////////////////////////////////////////////////////////////////////////////// */
+    /*////////////////////////////// RESPONSIVE DESIGN //////////////////////////////*/
+    /* ////////////////////////////////////////////////////////////////////////////////////////// */
+    // @media(max-width: 992px) {
+    //     .navbar {
+    //         display: block;
+    //         background-color: red;
+    //     }
+    // }
+
+    // @media(max-width: 576px) {
+    //     .navbar {
+    //         display: block;
+    //     }
+    // }
+
+    // @media only screen and (min-width: 600px) {
+    //     .navbar {
+    //         background-color: white;
+    //     }
+    // }
 
     // ul {
     //     display: flex;
