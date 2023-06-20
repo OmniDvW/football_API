@@ -21,74 +21,171 @@
         height: 100vh;
         width: 100%;
         display: grid;
-        grid-template-rows: 5rem 30vh 1fr 5rem;
+        grid-template-rows: 10rem 1fr 5rem;
 
         .sidebar-menu-header {
-            height: 5rem;
+            height: 10rem;
             width: 100%;
-            background-color: green;
             grid-row: 1 / 2;
             padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
 
             .sidebar-menu-logo {
-
+                height: 5rem;
                 text-decoration: none;
                 color: $color-white;
 
+
                 h1 {
-                    font-size: 1.5rem;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    font-size: 1.6rem;
+
+                    svg {
+                        margin-bottom: 2px;
+                    }
+                }
+            }
+
+            .sidebar-menu-search {
+                margin-top: 1rem;
+                height: 5rem;
+
+                .search-bar {
+                    height: 2rem;
+                    display: flex;
+                    justify-content: space-around;
+                    align-items: center;
+                    background-color: $color-black;
+                    border-radius: 5px;
+                }
+
+                button {
+                    height: 1.5rem;
+                    background-color: transparent;
+                    border: none;
+                    color: $color-grey-light;
+                    cursor: pointer;
+
+                    svg {
+                        width: 1.5rem;
+                        height: 1.5rem;
+                    }
+                }
+
+                input {
+                    height: 1.5rem;
+                    background-color: $color-black;
+                    color: $color-white;
+                    box-shadow: none;
+                    border: none;
+                    outline: none;
+
                 }
             }
         }
 
 
-        .sidebar-menu-top {
+        .sidebar-menu-contain {
             grid-row: 2 / 3;
-            height: 30vh;
-            width: 100%;
-            background-color: purple;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-
-
-            ul {
-                height: 100%;
-                width: 80%;
-                background-color: orange;
-                border-bottom: 1.5px solid black;
-            }
-        }
-
-        .sidebar-menu-bottom {
-            grid-row: 3 / 4;
-            // margin-top: 2rem;
             height: 100%;
             width: 100%;
-            display: flex;
-            padding: 2rem;
-            flex-direction: column;
-            background-color: red;
-            // justify-content: center;
-            // align-items: center;
 
-            ul {
+            .sidebar-menu-top {
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                // display: none;
 
-                li {
-                    text-decoration: none;
+                ul {
+                    display: flex;
+                    flex-direction: column;
+                    height: 100%;
+                    width: 80%;
+                    border-bottom: 1.5px solid $color-grey-light;
+                    padding-bottom: 1rem;
 
-                    a {
-                        color: white;
+                    li {
+                        margin-bottom: 1rem;
+
+                        a {
+                            text-decoration: none;
+                            color: $color-white;
+
+                        }
+                    }
+                }
+            }
+
+            .sidebar-menu-bottom {
+                height: 100%;
+                width: 100%;
+                display: flex;
+                padding: 2rem;
+                flex-direction: column;
+
+                .sidebar-top-competitions {
+                    color: $color-white;
+                    display: flex;
+                    font-weight: 700;
+                    margin-bottom: 1.5rem;
+                }
+
+                ul {
+                    display: flex;
+                    flex-direction: column;
+                    height: 100%;
+                    width: 100%;
+
+
+
+                    li {
+                        margin-bottom: 1rem;
+
+                        a {
+                            display: flex;
+                            text-decoration: none;
+                            color: $color-grey-light;
+                            font-size: small;
+
+                            img {
+                                margin-right: 10px;
+                            }
+                        }
+                    }
+
+                    .button-competitions {
+                        height: 2rem;
+                        margin-top: 1rem;
+                        display: flex;
+                        justify-content: flex-start;
+                        align-items: flex-start;
+
+
+                        a {
+                            display: flex;
+                            justify-content: center;
+                            padding: 0.5rem;
+                            font-size: inherit;
+                            color: $color-red;
+                            border: 1px solid $color-red;
+                        }
+
+
                     }
                 }
             }
         }
 
         .sidebar-menu-footer {
-            grid-row: 4 / 5;
+            grid-row: 3 / 4;
             height: 5rem;
             width: 100%;
-            background-color: pink;
+            background-color: $color-black-primary;
         }
     }
 
