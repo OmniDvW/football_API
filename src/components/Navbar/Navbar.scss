@@ -25,9 +25,24 @@
         justify-content: space-between;
         align-items: center;
 
+        .menu-burger {
+            button {
+                background-color: transparent;
+                color: $color-white;
+                border: none;
+                outline: none;
+                cursor: pointer;
+
+                svg {
+                    font-size: 2rem;
+                }
+            }
+        }
+
         .home-logo {
             text-decoration: none;
             color: $color-white;
+            margin-right: 2rem;
 
             .logo {
                 font-size: 2rem;
