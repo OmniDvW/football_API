@@ -1,20 +1,29 @@
 .home {
+    height: 100%;
+    width: 100%;
 
-    // p {
-    //     color: red;
-    //     font-family: 'Anton', sans-serif;
-    // }
+    .home-hearder {}
 
+    .home-container {
+        margin: 0 auto;
+        align-items: center;
+        // padding: 10rem;
+        background-color: red;
+
+        .home-container-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            .card-match {
+                // height: 10rem;
+                width: 50vw;
+                background-color: yellow;
+                border: 1px solid black;
+
+                .match {}
+            }
+        }
+    }
 }
-
-// .home_container {
-//     display: grid;
-//     grid-template-columns: 50px 2fr 50px;
-// }
-
-// .home_container_content {
-//     grid-column: 2 / 2;
-//     background-color: red;
-//     display: grid;
-//     grid-template-columns: 1fr 3fr 1fr;
-// }

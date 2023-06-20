@@ -4,11 +4,11 @@
 .sidebar {
     z-index: 200;
     overflow: hidden;
-    background-color: #333;
+    background-color: $color-grey-dark;
     position: fixed;
     top: 0;
     left: 0;
-    width: 18rem;
+    width: 20rem;
     height: 100vh;
     transition: transform 0.3s ease;
 
@@ -106,15 +106,20 @@
                     flex-direction: column;
                     height: 100%;
                     width: 80%;
-                    border-bottom: 1.5px solid $color-grey-light;
+                    border-bottom: 1.5px solid $color-grey-dark-secondary;
                     padding-bottom: 1rem;
 
                     li {
                         margin-bottom: 1rem;
+                        margin-top: 0.3rem;
 
                         a {
                             text-decoration: none;
                             color: $color-white;
+
+                            &:hover {
+                                color: $color-blue-green;
+                            }
 
                         }
                     }
@@ -131,7 +136,7 @@
                 .sidebar-top-competitions {
                     color: $color-white;
                     display: flex;
-                    font-weight: 700;
+                    font-weight: 600;
                     margin-bottom: 1.5rem;
                     align-items: center;
                 }
@@ -151,11 +156,15 @@
                             display: flex;
                             text-decoration: none;
                             color: $color-grey-light;
-                            font-size: small;
+                            font-size: 0.9rem;
                             align-items: center;
 
                             img {
                                 margin-right: 10px;
+                            }
+
+                            &:hover {
+                                color: $color-grey-dark-primary;
                             }
                         }
                     }
@@ -175,6 +184,12 @@
                             font-size: inherit;
                             color: $color-red;
                             border: 1px solid $color-red;
+                            font-weight: 600;
+
+                            &:hover {
+                                font-weight: 200;
+                                color: $color-red;
+                            }
                         }
 
 
