@@ -1,0 +1,22 @@
+@import "../../styles/variables";
+
+.calendar {
+    height: 5rem;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: $color-grey-light;
+
+    button {
+        background-color: transparent;
+        color: $color-white;
+        border: none;
+        cursor: pointer;
+    }
+
+    .selected-date {
+        width: 15rem;
+        text-align: center;
+    }
+}

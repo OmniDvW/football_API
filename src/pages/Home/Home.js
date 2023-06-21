@@ -1,6 +1,7 @@
 import React, { useEffect, useContext, useState } from 'react';
 import { ApiContext } from '../../context/apiContext';
 import moment from 'moment';
+import CustomCalendar from '../../components/CustomCalendar/CustomCalendar';
 import "./Home.scss";
 
 
@@ -10,8 +11,6 @@ const Home = () => {
     const { apiDataFixtures, apiDataLeagues } = useContext(ApiContext);
     const [matchesByLeague, setMatchesByLeague] = useState({});
 
-    // const isPast = eventTime.isBefore(currentTime);
-    // const isCurrent = eventTime.isSameOrBefore(currentTime.add(1, 'hour'));
 
     useEffect(() => {
         const matchesByLeague = {};
@@ -29,7 +28,9 @@ const Home = () => {
     return (
         <div className='home'>
             <div className='home-header'>
-                <p>header</p>
+                <div>
+                    <CustomCalendar />
+                </div>
             </div>
             <div className="home-container">
                 <div className='home-container-content'>
@@ -104,8 +105,9 @@ const Home = () => {
                         return null;
                     })}
                 </div>
-            </div >
-        </div >
+            </div>
+            <div className='home-footer'></div>
+        </div>
     );
 };
 
