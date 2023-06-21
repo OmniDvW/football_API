@@ -81,7 +81,7 @@
 
                         .match-teams {
                             width: 100%;
-                            border-right: 1.5px solid $color-grey-dark-secondary;
+                            // border-right: 1.5px solid $color-grey-dark-secondary;
 
 
                             .match-teams-home {
@@ -110,17 +110,45 @@
 
                         }
 
-                        .match-time {
-                            width: 10rem;
-                            display: flex;
-                            justify-content: center;
-                            align-items: center;
 
-                            p {
-                                text-align: center;
-                                width: 4rem;
+                        .match-info {
+                            width: 10rem;
+                            height: 100%;
+                            display: flex;
+                            justify-content: flex-end;
+                            // align-items: center;
+
+                            .match-info-score {
+                                height: 100%;
+                                width: 2rem;
+                                display: flex;
+                                flex-direction: column;
+                                justify-content: space-around;
+                                align-items: center;
+                                margin-right: 1rem;
                             }
+
+                            .match-info-time {
+                                display: flex;
+                                justify-content: center;
+                                align-items: center;
+                                height: 100%;
+                                width: 8rem;
+                                border-left: 1.5px solid $color-grey-dark-secondary;
+
+                                p {
+                                    text-align: center;
+                                    width: 4rem;
+                                }
+
+                                .info-live {
+                                    color: $color-red;
+                                }
+                            }
+
+
                         }
+
                     }
                 }
 

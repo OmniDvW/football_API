@@ -10,6 +10,9 @@ const Home = () => {
     const { apiDataFixtures, apiDataLeagues } = useContext(ApiContext);
     const [matchesByLeague, setMatchesByLeague] = useState({});
 
+    // const isPast = eventTime.isBefore(currentTime);
+    // const isCurrent = eventTime.isSameOrBefore(currentTime.add(1, 'hour'));
+
     useEffect(() => {
         const matchesByLeague = {};
         apiDataFixtures.forEach(match => {
@@ -61,8 +64,36 @@ const Home = () => {
                                                         <p>{match.teams.away.name}</p>
                                                     </div>
                                                 </div>
-                                                <div className='match-time'>
-                                                    <p>{moment(match.fixture.date).format('HH:mm')}</p>
+                                                <div className='match-info'>
+
+                                                    {moment(match.fixture.date).isBefore(moment()) ?
+                                                        <div className='match-info'>
+                                                            <div className='match-info-score'>
+                                                                <p>{match.goals.home}</p>
+                                                                <p>{match.goals.away}</p>
+                                                            </div>
+                                                            <div className='match-info-time'>
+                                                                <p>Finished</p>
+                                                            </div>
+                                                        </div> :
+                                                        moment(match.fixture.date).isSameOrBefore(moment().add(1, 'hour').add(45, 'minutes')) ?
+                                                            <div className='match-info'>
+                                                                <div className='match-info-score'>
+                                                                    <p>{match.goals.home}</p>
+                                                                    <p>{match.goals.away}</p>
+                                                                </div>
+                                                                <div className='match-info-time'>
+                                                                    <p className='info-live'>Live</p>
+                                                                </div>
+                                                            </div> :
+                                                            <div className='match-info'>
+                                                                <div className='match-info-score'>
+                                                                </div>
+                                                                <div className='match-info-time'>
+                                                                    <p>{moment(match.fixture.date).format('HH:mm')}</p>
+                                                                </div>
+                                                            </div>}
+
                                                 </div>
                                             </div>
                                         ))}
@@ -73,8 +104,8 @@ const Home = () => {
                         return null;
                     })}
                 </div>
-            </div>
-        </div>
+            </div >
+        </div >
     );
 };
 
