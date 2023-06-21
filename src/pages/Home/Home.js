@@ -1,5 +1,6 @@
 import React, { useEffect, useContext, useState } from 'react';
 import { ApiContext } from '../../context/apiContext';
+import moment from 'moment';
 import "./Home.scss";
 
 
@@ -46,7 +47,23 @@ const Home = () => {
                                     <div className="card-match-container">
                                         {matchesByLeague[leagueId].map(match => (
                                             <div key={match.fixture.id} className='match'>
-                                                {match.fixture.id} vs {match.fixture.id}
+                                                <div className='match-teams'>
+                                                    <div className='match-teams-home'>
+                                                        <div className='match-teams-logo'>
+                                                            <img src={match.teams.home.logo} alt={match.teams.home.name} />
+                                                        </div>
+                                                        <p>{match.teams.home.name}</p>
+                                                    </div>
+                                                    <div className='match-teams-away'>
+                                                        <div className='match-teams-logo'>
+                                                            <img src={match.teams.away.logo} alt={match.teams.away.name} />
+                                                        </div>
+                                                        <p>{match.teams.away.name}</p>
+                                                    </div>
+                                                </div>
+                                                <div className='match-time'>
+                                                    <p>{moment(match.fixture.date).format('HH:mm')}</p>
+                                                </div>
                                             </div>
                                         ))}
                                     </div>

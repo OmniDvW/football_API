@@ -59,21 +59,67 @@
                     flex-wrap: wrap;
 
                     .match {
-                        height: 7rem;
+                        // height: 7rem;
                         width: calc(33.33% - 1rem);
                         border-radius: 10px;
                         margin-bottom: 1rem;
                         margin-right: 1rem;
                         background-color: $color-grey-dark;
+                        color: $color-grey-light;
+                        display: flex;
+                        flex-direction: row;
+                        justify-content: space-between;
+                        padding: 2rem 0 2rem 2rem;
 
                         @media (max-width: 1281px) {
                             width: calc(50% - 1rem);
-
                         }
 
                         @media (max-width: 576px) {
                             width: calc(100% - 1rem);
+                        }
 
+                        .match-teams {
+                            width: 100%;
+                            border-right: 1.5px solid $color-grey-dark-secondary;
+
+
+                            .match-teams-home {
+                                display: flex;
+                                align-items: center;
+                            }
+
+                            .match-teams-away {
+                                display: flex;
+                                align-items: center;
+                            }
+
+                            .match-teams-logo {
+                                display: flex;
+                                justify-content: center;
+                                align-items: center;
+                                width: 2rem;
+                                height: 2rem;
+                                margin-right: 0.3rem;
+
+                                img {
+                                    width: 1.5rem;
+                                }
+                            }
+
+
+                        }
+
+                        .match-time {
+                            width: 10rem;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+
+                            p {
+                                text-align: center;
+                                width: 4rem;
+                            }
                         }
                     }
                 }
