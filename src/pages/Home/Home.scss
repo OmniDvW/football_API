@@ -1,28 +1,83 @@
+@import "../../styles/variables";
+
 .home {
     height: 100%;
     width: 100%;
 
-    .home-hearder {}
+    .home-header {
+        height: 5rem;
+        width: 100%;
+        background-color: pink;
+    }
 
     .home-container {
-        margin: 0 auto;
+        height: 100%;
+        width: 100%;
+        display: flex;
+        justify-content: center;
         align-items: center;
-        // padding: 10rem;
-        background-color: red;
+        padding-right: 1rem;
+        padding-left: 2rem;
 
         .home-container-content {
+            max-width: 1281px;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
 
             .card-match {
-                // height: 10rem;
-                width: 50vw;
-                background-color: yellow;
-                border: 1px solid black;
+                height: 100%;
+                width: 100%;
+                margin-top: 3.5rem;
 
-                .match {}
+
+                .card-match-title {
+                    width: 100%;
+                    margin-bottom: 2rem;
+
+                    h2 {
+                        display: flex;
+                        color: $color-white;
+                        text-transform: uppercase;
+
+                        img {
+                            height: 1em;
+                        }
+
+                        span {
+                            padding-left: 5px;
+                        }
+                    }
+
+
+                }
+
+                .card-match-container {
+                    height: 100%;
+                    display: flex;
+                    flex-wrap: wrap;
+
+                    .match {
+                        height: 7rem;
+                        width: calc(33.33% - 1rem);
+                        border-radius: 10px;
+                        margin-bottom: 1rem;
+                        margin-right: 1rem;
+                        background-color: $color-grey-dark;
+
+                        @media (max-width: 1281px) {
+                            width: calc(50% - 1rem);
+
+                        }
+
+                        @media (max-width: 576px) {
+                            width: calc(100% - 1rem);
+
+                        }
+                    }
+                }
+
             }
         }
     }

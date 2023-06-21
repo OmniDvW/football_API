@@ -6,7 +6,7 @@ import "./Home.scss";
 
 
 const Home = () => {
-    const { apiDataFixtures } = useContext(ApiContext);
+    const { apiDataFixtures, apiDataLeagues } = useContext(ApiContext);
     const [matchesByLeague, setMatchesByLeague] = useState({});
 
     useEffect(() => {
@@ -25,19 +25,36 @@ const Home = () => {
     return (
         <div className='home'>
             <div className='home-header'>
-
+                <p>header</p>
             </div>
             <div className="home-container">
                 <div className='home-container-content'>
-                    {Object.keys(matchesByLeague).map(leagueId => (
-                        <div key={leagueId} className='card-match'>
-                            {matchesByLeague[leagueId].map(match => (
-                                <div key={match.fixture.id} className='match'>
-                                    {match.fixture.id} vs {match.fixture.id}
+                    {Object.keys(matchesByLeague).map(leagueId => {
+                        const league = apiDataLeagues.find(league => league.league.id === parseInt(leagueId));
+
+                        if (league) {
+                            return (
+                                <div key={leagueId} className='card-match'>
+                                    <div className='card-match-title'>
+                                        <h2>
+                                            <img src={league.country.flag ? league.country.flag : "/worldmap.png"} alt={`${league.country.name} flag`} />
+                                            <span>{league.country.name}</span>
+                                            <span>-</span>
+                                            <span>{league.league.name}</span>
+                                        </h2>
+                                    </div>
+                                    <div className="card-match-container">
+                                        {matchesByLeague[leagueId].map(match => (
+                                            <div key={match.fixture.id} className='match'>
+                                                {match.fixture.id} vs {match.fixture.id}
+                                            </div>
+                                        ))}
+                                    </div>
                                 </div>
-                            ))}
-                        </div>
-                    ))}
+                            );
+                        }
+                        return null;
+                    })}
                 </div>
             </div>
         </div>
@@ -45,3 +62,5 @@ const Home = () => {
 };
 
 export default Home;
+
+
