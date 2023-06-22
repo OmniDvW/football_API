@@ -1,21 +1,28 @@
-import React, { useEffect, useState, useContext } from 'react';
+import React, { useContext } from 'react';
 import { ApiContext } from '../../context/apiContext';
 
 const LeagueCard = () => {
 
-    const { apiDataCountries, apiDataLeagues, apiDataStandings } = useContext(ApiContext);
+    const { apiDataStandings } = useContext(ApiContext);
 
-
+    const lol = () => {
+        console.log(apiDataStandings[0].league.standings[0])
+    }
     return (
         <div>
-            <p>league Card</p>
             {apiDataStandings.length === 0 ? (
                 <p>Le tableau est videe.</p>
+
             ) : (
-                <p>league: {apiDataStandings[0].league.name}</p>
-
+                <div>
+                    <p onClick={lol}>league: {apiDataStandings[0].league.name}</p>
+                    {apiDataStandings[0].league.standings[0].map((data, index) => (
+                        <div key={index}>
+                            <p>points {data.points}</p>
+                        </div>
+                    ))}
+                </div>
             )}
-
         </div>
     );
 };
