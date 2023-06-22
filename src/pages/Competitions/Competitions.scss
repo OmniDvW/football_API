@@ -1,1 +1,23 @@
-.competitions {}
+@import "../../styles/variables";
+
+.competitions {
+    height: 100%;
+    width: 100%;
+
+    .competitions-list {
+
+        .competitions-country {
+            // height: 2rem;
+
+            h2 {
+                color: $color-white;
+
+                img {
+                    height: 1rem;
+                }
+            }
+
+            .competitions-leagues {}
+        }
+    }
+}
