@@ -31,8 +31,8 @@ const Football = () => {
 
     return (
         <div className='footballInfo'>
-            <h1>Composant avec paramètre</h1>
-            <p>Paramètre reçu : {id}</p>
+            {/* <h1>Composant avec paramètre</h1>
+            <p>Paramètre reçu : {id}</p> */}
 
             {type === "Cup" ? (
                 <CupCard />
