@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { NavLink } from 'react-router-dom';
 import { ApiContext } from '../../context/apiContext';
+import moment from 'moment';
 import "./Sidebar.scss"
 import SportsSoccerIcon from '@mui/icons-material/SportsSoccer';
 import SearchIcon from '@mui/icons-material/Search';
@@ -8,14 +9,20 @@ import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 
 const Sidebar = ({ isOpen }) => {
 
-    const { apiDataLeagues } = useContext(ApiContext);
+    const { apiDataLeagues, fetchDataFixtures, resetDate } = useContext(ApiContext);
+    const date = moment().format('YYYY-MM-DD');
     // const [searchValue, setSearchValue] = useState('');
+
+    const handleHomeClick = () => {
+        fetchDataFixtures(date);
+        resetDate(new Date())
+    };
 
     return (
         <div className={`sidebar ${isOpen ? 'open' : 'closed'}`}>
             <div className="sidebar-menu">
                 <div className="sidebar-menu-header">
-                    <NavLink to="/" className="sidebar-menu-logo">
+                    <NavLink to="/" className="sidebar-menu-logo" onClick={handleHomeClick}>
                         <h1><SportsSoccerIcon />MNIFOOT</h1>
                     </NavLink>
                     <div className='sidebar-menu-search'>
@@ -37,12 +44,12 @@ const Sidebar = ({ isOpen }) => {
                     <div className="sidebar-menu-top">
                         <ul>
                             <li>
-                                <NavLink to="/" className="">
+                                <NavLink to="/" className="" onClick={handleHomeClick}>
                                     Matches
                                 </NavLink>
                             </li>
                             <li>
-                                <NavLink to="/" className="">
+                                <NavLink to="/" className="" onClick={handleHomeClick}>
                                     Lives
                                 </NavLink>
                             </li>

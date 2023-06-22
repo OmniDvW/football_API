@@ -7,22 +7,23 @@ import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 
 const CustomCalendar = () => {
-    const { fetchDataFixtures } = useContext(ApiContext);
-    const [selectedDate, setSelectedDate] = useState(new Date());
+    const { fetchDataFixtures, selectedDate, resetDate } = useContext(ApiContext);
+
 
     const handlePrevDay = () => {
         const newDate = new Date(selectedDate);
         newDate.setDate(selectedDate.getDate() - 1);
-        setSelectedDate(newDate);
-        fetchDataFixtures(selectedDate);
+        resetDate(newDate);
+        fetchDataFixtures(moment(selectedDate).format('YYYY-MM-DD'));
     };
 
     const handleNextDay = () => {
         const newDate = new Date(selectedDate);
         newDate.setDate(selectedDate.getDate() + 1);
-        setSelectedDate(newDate);
-        fetchDataFixtures(selectedDate);
+        resetDate(newDate);
+        fetchDataFixtures(moment(selectedDate).format('YYYY-MM-DD'));
     };
+
 
     return (
         <div>

@@ -7,13 +7,13 @@ import About from "./pages/About/About";
 import Competitions from "./pages/Competitions/Competitions";
 import Football from "./pages/Football/Football";
 import { ApiContext } from './context/apiContext';
-import moment from 'moment';
+// import moment from 'moment';
 import "./styles/app.scss";
 
 
 const App = () => {
   const { apiDataLeagues, fetchDataCountries, fetchDataLeagues, fetchDataSeasons, fetchDataFixtures } = useContext(ApiContext);
-  const date = moment().format('YYYY-MM-DD');
+  // const date = moment().format('YYYY-MM-DD');
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [isBackgroundBlur, setIsBackgroundBlur] = useState(false);
 
@@ -26,7 +26,7 @@ const App = () => {
     fetchDataCountries();
     fetchDataLeagues();
     // fetchDataSeasons();
-    fetchDataFixtures(date);
+
   }, []);
 
   return (

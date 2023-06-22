@@ -1,9 +1,18 @@
-import React, { useState } from 'react';
+import React, { useContext } from 'react';
 import { NavLink } from 'react-router-dom';
+import { ApiContext } from '../../context/apiContext';
+import moment from 'moment';
 import "./Navbar.scss";
 import MenuIcon from '@mui/icons-material/Menu';
 
 const Navbar = ({ handleToggleSidebar }) => {
+
+    const { fetchDataFixtures, resetDate } = useContext(ApiContext);
+    const date = moment().format('YYYY-MM-DD');
+    const handleHomeClick = () => {
+        fetchDataFixtures(date);
+        resetDate(new Date())
+    };
 
     return (
         <div className="navbar">
@@ -14,7 +23,7 @@ const Navbar = ({ handleToggleSidebar }) => {
                     </button>
 
                 </div>
-                <NavLink to="/" className="home-logo">
+                <NavLink to="/" className="home-logo" onClick={handleHomeClick}>
                     <h1 className="logo">OMNIFOOT</h1>
                 </NavLink>
                 <div className="menu-close">

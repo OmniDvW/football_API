@@ -18,6 +18,12 @@ const ApiProvider = ({ children }) => {
     const [apiDataFixturesRounds, setApiDataFixturesRounds] = useState([]);
     const [apiDataFixtures, setApiDataFixtures] = useState([]);
     const [apiDataFixturesCup, setApiDataFixturesCup] = useState([]);
+    const [selectedDate, setSelectedDate] = useState(new Date());
+
+
+    const resetDate = (date) => {
+        setSelectedDate(date)
+    };
 
 
     const fetchDataCountries = () => {
@@ -101,8 +107,8 @@ const ApiProvider = ({ children }) => {
 
     return (
         <ApiContext.Provider value={{
-            apiDataCountries, apiDataLeagues, apiDataSeasons, apiDataStandings, apiDataFixturesRounds, apiDataFixtures, apiDataFixturesCup,
-            fetchDataCountries, fetchDataLeagues, fetchDataSeasons, fetchDataStandings, fetchDataFixturesRounds, fetchDataFixtures, fetchDataFixturesCup
+            apiDataCountries, apiDataLeagues, apiDataSeasons, apiDataStandings, apiDataFixturesRounds, apiDataFixtures, apiDataFixturesCup, selectedDate,
+            fetchDataCountries, fetchDataLeagues, fetchDataSeasons, fetchDataStandings, fetchDataFixturesRounds, fetchDataFixtures, fetchDataFixturesCup, resetDate
         }}>
             {children}
         </ApiContext.Provider>

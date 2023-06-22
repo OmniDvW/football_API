@@ -8,11 +8,14 @@ import "./Home.scss";
 
 
 const Home = () => {
-    const { apiDataFixtures, apiDataLeagues } = useContext(ApiContext);
+    const { apiDataFixtures, apiDataLeagues, fetchDataFixtures } = useContext(ApiContext);
     const [matchesByLeague, setMatchesByLeague] = useState({});
+    const date = moment().format('YYYY-MM-DD');
 
 
     useEffect(() => {
+        fetchDataFixtures(date);
+        console.log(date)
         const matchesByLeague = {};
         apiDataFixtures.forEach(match => {
             const leagueId = match.league.id;
