@@ -34,12 +34,11 @@ const Competitions = () => {
             <div className='competitions-search'>
                 <input
                     type='text'
-                    placeholder='Rechercher par pays ou ligue...'
+                    placeholder='Search by country or league...'
                     value={searchTerm}
                     onChange={handleSearch}
                 />
             </div>
-
             <div className='competitions-list'>
                 {countriesResults.map((data, index) => (
                     <div key={index} className='competitions-country'>
@@ -47,8 +46,8 @@ const Competitions = () => {
                             <img src={data.flag} alt={data.name} />
                             <span>{data.name}</span>
                         </h2>
-                        <div className='commpetitions-leagues'>
-                            <ul >
+                        <div className='competitions-leagues'>
+                            <ul>
                                 {leaguesResults.map((dataLeague, linkIndex) =>
                                     dataLeague.country.name === data.name ? (
                                         <li key={linkIndex}>
@@ -59,7 +58,9 @@ const Competitions = () => {
                                                 )}/${dataLeague.league.type}/${dataLeague.league.id}`}
                                                 className='dropdown-item'
                                             >
-                                                {dataLeague.league.name}
+                                                <img src={dataLeague.league.logo} alt={dataLeague.league.name} />
+                                                <span> {dataLeague.league.name}</span>
+
                                             </NavLink>
                                         </li>
                                     ) : null
