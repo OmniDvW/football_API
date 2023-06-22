@@ -20,6 +20,10 @@
         display: block;
         background-color: black;
         opacity: 60%;
+
+        @media (min-width: 993px) {
+            display: none;
+        }
     }
 
     .app-container {

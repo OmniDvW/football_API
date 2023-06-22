@@ -12,6 +12,11 @@
         align-items: center;
         padding-top: 4rem;
 
+        @media (max-width: 1381px) {
+            padding-right: 2rem;
+            padding-left: 2rem;
+        }
+
         input {
             width: 55rem;
             height: 2rem;
@@ -21,6 +26,10 @@
             outline: none;
             color: $color-white;
             padding: 1.5rem;
+
+            @media (max-width: 1381px) {
+                width: 100%;
+            }
         }
     }
 
@@ -35,6 +44,12 @@
         .competitions-country {
             margin-top: 4rem;
             width: 55rem;
+
+            @media (max-width: 1381px) {
+                width: 100%;
+                padding-right: 2rem;
+                padding-left: 2rem;
+            }
 
             h2 {
                 display: flex;

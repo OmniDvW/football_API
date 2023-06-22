@@ -15,7 +15,6 @@ const Home = () => {
 
     useEffect(() => {
         fetchDataFixtures(date);
-        console.log(date)
         const matchesByLeague = {};
         apiDataFixtures.forEach(match => {
             const leagueId = match.league.id;

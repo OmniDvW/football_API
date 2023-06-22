@@ -61,30 +61,56 @@
                     align-items: center;
                     background-color: $color-black;
                     border-radius: 5px;
-                }
 
-                button {
-                    height: 1.5rem;
-                    background-color: transparent;
-                    border: none;
-                    color: $color-grey-light;
-                    cursor: pointer;
-
-                    svg {
-                        width: 1.5rem;
+                    .search-bar-link {
                         height: 1.5rem;
+                        width: 100%;
+                        background-color: transparent;
+                        border: none;
+                        color: $color-grey-light;
+                        cursor: pointer;
+                        display: flex;
+                        justify-content: flex-start;
+                        align-items: center;
+                        text-decoration: none;
+
+                        svg {
+                            width: 1.5rem;
+                            height: 1.5rem;
+                            margin-right: 0.5rem;
+                            margin-left: 0.5rem;
+                        }
                     }
                 }
 
-                input {
-                    height: 1.5rem;
-                    background-color: $color-black;
-                    color: $color-white;
-                    box-shadow: none;
-                    border: none;
-                    outline: none;
+                // button {
+                //     height: 1.5rem;
+                //     width: 100%;
+                //     background-color: transparent;
+                //     border: none;
+                //     color: $color-grey-light;
+                //     cursor: pointer;
+                //     display: flex;
+                //     justify-content: flex-start;
+                //     align-items: center;
 
-                }
+                //     svg {
+                //         width: 1.5rem;
+                //         height: 1.5rem;
+                //         margin-right: 0.8rem;
+                //         margin-left: 0.2rem;
+                //     }
+                // }
+
+                // input {
+                //     height: 1.5rem;
+                //     background-color: $color-black;
+                //     color: $color-white;
+                //     box-shadow: none;
+                //     border: none;
+                //     outline: none;
+
+                // }
             }
         }
 
@@ -99,7 +125,10 @@
                 display: flex;
                 justify-content: center;
                 align-items: center;
-                // display: none;
+
+                // @media (max-width: 992px) {
+                //     display: none;
+                // }
 
                 ul {
                     display: flex;
@@ -203,6 +232,11 @@
             height: 5rem;
             width: 100%;
             background-color: $color-black-primary;
+            display: none;
+
+            @media (min-width: 991px) {
+                display: block;
+            }
         }
     }
 

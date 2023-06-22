@@ -19,10 +19,15 @@ const ApiProvider = ({ children }) => {
     const [apiDataFixtures, setApiDataFixtures] = useState([]);
     const [apiDataFixturesCup, setApiDataFixturesCup] = useState([]);
     const [selectedDate, setSelectedDate] = useState(new Date());
+    const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+
+    const resetSidebar = () => {
+        setIsSidebarOpen(!isSidebarOpen);
+    }
 
 
     const resetDate = (date) => {
-        setSelectedDate(date)
+        setSelectedDate(date);
     };
 
 
@@ -107,8 +112,8 @@ const ApiProvider = ({ children }) => {
 
     return (
         <ApiContext.Provider value={{
-            apiDataCountries, apiDataLeagues, apiDataSeasons, apiDataStandings, apiDataFixturesRounds, apiDataFixtures, apiDataFixturesCup, selectedDate,
-            fetchDataCountries, fetchDataLeagues, fetchDataSeasons, fetchDataStandings, fetchDataFixturesRounds, fetchDataFixtures, fetchDataFixturesCup, resetDate
+            apiDataCountries, apiDataLeagues, apiDataSeasons, apiDataStandings, apiDataFixturesRounds, apiDataFixtures, apiDataFixturesCup, selectedDate, isSidebarOpen,
+            fetchDataCountries, fetchDataLeagues, fetchDataSeasons, fetchDataStandings, fetchDataFixturesRounds, fetchDataFixtures, fetchDataFixturesCup, resetDate, resetSidebar
         }}>
             {children}
         </ApiContext.Provider>

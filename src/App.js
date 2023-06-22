@@ -7,32 +7,27 @@ import About from "./pages/About/About";
 import Competitions from "./pages/Competitions/Competitions";
 import Football from "./pages/Football/Football";
 import { ApiContext } from './context/apiContext';
-// import moment from 'moment';
 import "./styles/app.scss";
 
 
 const App = () => {
-  const { apiDataLeagues, fetchDataCountries, fetchDataLeagues, fetchDataSeasons, fetchDataFixtures } = useContext(ApiContext);
-  // const date = moment().format('YYYY-MM-DD');
-  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const { apiDataLeagues, fetchDataCountries, fetchDataLeagues, fetchDataSeasons, isSidebarOpen, resetSidebar } = useContext(ApiContext);
   const [isBackgroundBlur, setIsBackgroundBlur] = useState(false);
 
   const handleToggleSidebar = () => {
-    setIsSidebarOpen(!isSidebarOpen);
+    resetSidebar()
     setIsBackgroundBlur(!isBackgroundBlur);
   };
 
   useEffect(() => {
     fetchDataCountries();
     fetchDataLeagues();
-    // fetchDataSeasons();
-
   }, []);
 
   return (
     <div className='app-wrapper'>
       <BrowserRouter>
-        <div className={`burger-background ${isBackgroundBlur ? 'blur' : ''}`} onClick={handleToggleSidebar}>
+        <div className={`burger-background ${isSidebarOpen ? 'blur' : ''}`} onClick={handleToggleSidebar}>
         </div>
         <Navbar handleToggleSidebar={handleToggleSidebar} />
         <Sidebar isOpen={isSidebarOpen} />
