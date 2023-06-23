@@ -36,7 +36,7 @@ const App = () => {
         <div className='app-container'>
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/football_API/error-429" element={<ErrorPage />} />
+            <Route path="/error-429" element={<ErrorPage />} />
             {apiDataLeagues.map((data) => (
               <Route key={data.league.id} path="/:country/:league/:type/:id" element={<Football />} />
             ))}
