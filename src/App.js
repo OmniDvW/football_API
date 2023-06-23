@@ -22,6 +22,7 @@ const App = () => {
   useEffect(() => {
     fetchDataCountries();
     fetchDataLeagues();
+    fetchDataSeasons();
   }, []);
 
   return (

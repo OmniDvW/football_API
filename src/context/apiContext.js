@@ -32,36 +32,41 @@ const ApiProvider = ({ children }) => {
 
 
     const fetchDataCountries = () => {
-        getCountries()
-            .then(res => {
-                setApiDataCountries(res.response)
-            })
-            .catch(err => {
-                setApiDataCountries(dataCountries)
-                console.error(err);
-            });
+        // getCountries()
+        //     .then(res => {
+        //         setApiDataCountries(res.response)
+        //     })
+        //     .catch(err => {
+        //         setApiDataCountries(dataCountries)
+        //         console.error(err);
+        //     });
+
+        setApiDataCountries(dataCountries)
     };
 
     const fetchDataLeagues = () => {
-        getLeagues()
-            .then(res => {
-                setApiDataLeagues(res.response)
-            })
-            .catch(err => {
-                setApiDataLeagues(dataLeagues)
-                console.error(err);
-            });
+        // getLeagues()
+        //     .then(res => {
+        //         setApiDataLeagues(res.response)
+        //     })
+        //     .catch(err => {
+        //         setApiDataLeagues(dataLeagues)
+        //         console.error(err);
+        //     });
+
+        setApiDataLeagues(dataLeagues)
     };
 
     const fetchDataSeasons = () => {
-        getSeasons()
-            .then(res => {
-                setApiDataSeasons(res.response)
-            })
-            .catch(err => {
-                setApiDataSeasons(dataSeasons)
-                console.error(err);
-            });
+        // getSeasons()
+        //     .then(res => {
+        //         setApiDataSeasons(res.response)
+        //     })
+        //     .catch(err => {
+        //         setApiDataSeasons(dataSeasons)
+        //         console.error(err);
+        //     });
+        setApiDataSeasons(dataSeasons)
     };
 
     const fetchDataStandings = (id) => {
@@ -95,6 +100,7 @@ const ApiProvider = ({ children }) => {
             .catch(err => {
                 setApiDataFixtures(dataFixtures);
                 console.error(err);
+                console.log("hello")
             });
     };
 
