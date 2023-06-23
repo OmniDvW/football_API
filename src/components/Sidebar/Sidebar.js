@@ -87,7 +87,7 @@ const Sidebar = ({ isOpen }) => {
                                             className="sidebar-menu-link"
                                             onClick={handleSidebarClick}
                                         >
-                                            <img src={dataLeague.country.flag ? dataLeague.country.flag : "/worldmap.png"} alt="" /><span>{dataLeague.league.name}</span>
+                                            <img src={dataLeague.country.flag ? dataLeague.country.flag : "/football_API/worldmap.png"} alt="" /><span>{dataLeague.league.name}</span>
                                         </NavLink>
                                     </li>
                                 ))}

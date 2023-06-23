@@ -43,7 +43,7 @@ const Competitions = () => {
                 {countriesResults.map((data, index) => (
                     <div key={index} className='competitions-country'>
                         <h2>
-                            <img src={data.flag} alt={data.name} />
+                            <img src={data.flag ? data.flag : "/football_API/worldmap.png"} alt={data.name} />
                             <span>{data.name}</span>
                         </h2>
                         <div className='competitions-leagues'>

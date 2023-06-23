@@ -1,6 +1,7 @@
 import React, { useEffect, useContext } from 'react';
 import { useParams, useLocation } from 'react-router-dom';
 import { ApiContext } from '../../context/apiContext';
+import "./CupCard.scss";
 
 const CupCard = () => {
 
@@ -13,8 +14,8 @@ const CupCard = () => {
     }, [location, fetchDataFixturesCup, id]);
 
     return (
-        <div>
-            {/* <p>Cup Card</p> */}
+        <div className='cup-card'>
+            <p>not available at the moment</p>
 
         </div>
     );

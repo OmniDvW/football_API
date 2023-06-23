@@ -44,7 +44,7 @@ const Home = () => {
                                 <div key={leagueId} className='card-match'>
                                     <div className='card-match-title'>
                                         <h2>
-                                            <img src={league.country.flag ? league.country.flag : "/worldmap.png"} alt={`${league.country.name} flag`} />
+                                            <img src={league.country.flag ? league.country.flag : "/football_API/worldmap.png"} alt={`${league.country.name} flag`} />
                                             <span>{league.country.name}</span>
                                             <span>-</span>
                                             <span>{league.league.name}</span>
