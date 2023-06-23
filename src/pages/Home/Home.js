@@ -108,7 +108,6 @@ const Home = () => {
                     })}
                 </div>
             </div>
-            <div className='home-footer'></div>
         </div>
     );
 };

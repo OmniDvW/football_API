@@ -27,7 +27,7 @@ const LeagueCard = () => {
                                     <tr>
                                         <th className='standings-rank'>#</th>
                                         <th className='standings-team'>Team</th>
-                                        <th className='standings'>Pts</th>
+                                        <th className='standings-pts'>Pts</th>
                                         <th className='standings'>J</th>
                                         <th className='standings'>W</th>
                                         <th className='standings'>D</th>
@@ -45,7 +45,7 @@ const LeagueCard = () => {
                                                 <img src={data.team.logo} alt={data.team.name} />
                                                 <span>{data.team.name}</span>
                                             </td>
-                                            <td>{data.points}</td>
+                                            <td className='td-pts'>{data.points}</td>
                                             <td>{data.all.played}</td>
                                             <td>{data.all.win}</td>
                                             <td>{data.all.draw}</td>

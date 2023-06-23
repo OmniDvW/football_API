@@ -2,6 +2,7 @@ import React, { useEffect, useContext, useState } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar/Navbar';
 import Sidebar from './components/Sidebar/Sidebar';
+import Footer from './components/Footer/Footer';
 import Home from "./pages/Home/Home";
 import About from "./pages/About/About";
 import Competitions from "./pages/Competitions/Competitions";
@@ -43,7 +44,7 @@ const App = () => {
             <Route path="*" element={<Home />} />
           </Routes>
         </div>
-
+        <Footer />
       </BrowserRouter>
     </div>
   );

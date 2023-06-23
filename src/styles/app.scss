@@ -3,6 +3,7 @@
 .app-wrapper {
     height: 100%;
     width: 100%;
+    background-color: $color-black;
     font-family: 'Roboto', sans-serif;
 
     .burger-background {
@@ -18,7 +19,7 @@
 
     .burger-background.blur {
         display: block;
-        background-color: black;
+        background-color: $color-black-primary;
         opacity: 60%;
 
         @media (min-width: 993px) {
@@ -32,7 +33,6 @@
         min-height: 100vh;
         padding-top: 0;
         padding-left: 20rem;
-        background-color: $color-black;
 
         @media (max-width: 992px) {
             padding-left: 0;

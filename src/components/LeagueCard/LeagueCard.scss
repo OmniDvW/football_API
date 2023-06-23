@@ -38,6 +38,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            color: $color-grey-light;
         }
 
         .league-card-contain {
@@ -58,6 +59,18 @@
                 margin-top: 5rem;
                 padding: 2rem;
 
+                @media (max-width: 1281px) {
+                    width: 95%;
+                }
+
+                @media (max-width: 576px) {
+                    width: 100%;
+                    border-radius: 0px;
+                    padding: 1rem;
+                    font-size: 0.8rem;
+                    margin-top: 2rem;
+                }
+
                 .table {
                     width: 100%;
 
@@ -67,27 +80,37 @@
                             border-bottom: 1px solid $color-black;
                             height: 2rem;
 
-
-
-
                             th {
                                 text-align: center;
+                                color: $color-grey-light;
 
                             }
 
                             .standings {
                                 width: 2rem;
 
+                                @media (max-width: 576px) {
+                                    width: 1.5rem;
+
+                                }
+
                             }
 
                             .standings-team {
                                 text-align: start;
+                                color: $color-white;
                             }
 
                             .standings-rank {
                                 text-align: end;
                                 width: 2rem;
                                 padding-right: 1rem;
+                                color: $color-white;
+
+                            }
+
+                            .standings-pts {
+                                color: $color-red;
                             }
                         }
                     }
@@ -99,12 +122,14 @@
                             td {
                                 text-align: center;
                                 vertical-align: middle;
+                                color: $color-grey-light;
                             }
 
                             .td-rank {
                                 text-align: end;
                                 width: 2rem;
                                 padding-right: 1rem;
+                                color: $color-white;
 
                                 img {
                                     height: 1rem;
@@ -113,10 +138,16 @@
 
                             .td-team {
                                 text-align: start;
+                                color: $color-white;
 
                                 img {
                                     height: 1rem;
+                                    margin-right: 0.5rem;
                                 }
+                            }
+
+                            .td-pts {
+                                color: $color-red;
                             }
                         }
                     }
