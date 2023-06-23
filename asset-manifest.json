@@ -1,17 +1,17 @@
 {
   "files": {
     "main.css": "/football_API/static/css/main.b1a8ee11.css",
-    "main.js": "/football_API/static/js/main.213cf84a.js",
+    "main.js": "/football_API/static/js/main.cdc3d6ad.js",
     "static/media/Roboto-Regular.ttf": "/football_API/static/media/Roboto-Regular.fc2b5060f7accec5cf74.ttf",
     "static/media/Roboto-Black.ttf": "/football_API/static/media/Roboto-Black.cf56c1b149d0a5e8d7c6.ttf",
     "static/media/Roboto-Bold.ttf": "/football_API/static/media/Roboto-Bold.f80816a5455d171f948d.ttf",
     "static/media/Anton-Regular.ttf": "/football_API/static/media/Anton-Regular.170b842f9a8cd6150a0d.ttf",
     "index.html": "/football_API/index.html",
     "main.b1a8ee11.css.map": "/football_API/static/css/main.b1a8ee11.css.map",
-    "main.213cf84a.js.map": "/football_API/static/js/main.213cf84a.js.map"
+    "main.cdc3d6ad.js.map": "/football_API/static/js/main.cdc3d6ad.js.map"
   },
   "entrypoints": [
     "static/css/main.b1a8ee11.css",
-    "static/js/main.213cf84a.js"
+    "static/js/main.cdc3d6ad.js"
   ]
 }
