@@ -8,7 +8,8 @@ const LeagueCard = () => {
     return (
         <div className='league-card'>
             {apiDataStandings.length === 0 ? (
-                <p>Le tableau est videe.</p>
+                // <p>Le tableau est videe.</p>
+                <div></div>
 
             ) : (
                 <div className='league-card-wrapper'>

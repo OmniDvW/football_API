@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useContext } from 'react';
+import React, { useEffect, useContext } from 'react';
 import { useParams, useLocation } from 'react-router-dom';
 import { ApiContext } from '../../context/apiContext';
 
@@ -6,15 +6,15 @@ const CupCard = () => {
 
     const { id } = useParams();
     const location = useLocation();
-    const { apiDataCountries, apiDataLeagues, apiDataStandings, fetchDataFixturesCup } = useContext(ApiContext);
+    const { fetchDataFixturesCup } = useContext(ApiContext);
 
     useEffect(() => {
         fetchDataFixturesCup(id, 2022);
-    }, [location]);
+    }, [location, fetchDataFixturesCup, id]);
 
     return (
         <div>
-            <p>Cup Card</p>
+            {/* <p>Cup Card</p> */}
 
         </div>
     );

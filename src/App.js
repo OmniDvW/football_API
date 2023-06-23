@@ -4,7 +4,7 @@ import Navbar from './components/Navbar/Navbar';
 import Sidebar from './components/Sidebar/Sidebar';
 import Footer from './components/Footer/Footer';
 import Home from "./pages/Home/Home";
-import About from "./pages/About/About";
+import ErrorPage from "./pages/ErrorPage/ErrorPage";
 import Competitions from "./pages/Competitions/Competitions";
 import Football from "./pages/Football/Football";
 import { ApiContext } from './context/apiContext';
@@ -24,7 +24,7 @@ const App = () => {
     fetchDataCountries();
     fetchDataLeagues();
     fetchDataSeasons();
-  }, []);
+  }, [fetchDataCountries, fetchDataLeagues, fetchDataSeasons]);
 
   return (
     <div className='app-wrapper'>
@@ -36,7 +36,7 @@ const App = () => {
         <div className='app-container'>
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/about" element={<About />} />
+            <Route path="/error-429" element={<ErrorPage />} />
             {apiDataLeagues.map((data) => (
               <Route key={data.league.id} path="/:country/:league/:type/:id" element={<Football />} />
             ))}

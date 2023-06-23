@@ -1,12 +1,13 @@
 import React, { createContext, useState } from 'react';
-import { getCountries, getLeagues, getSeasons, getStandings, getFixturesRounds, getFixtures, getFixturesCup } from "../services/api";
+// import { getCountries, getLeagues, getSeasons, getStandings, getFixturesRounds, getFixtures, getFixturesCup } from "../services/api";
+import { getStandings, getFixturesRounds, getFixtures, getFixturesCup } from "../services/api";
 import dataCountries from "../jsons/dataCountries.json";
 import dataLeagues from "../jsons/dataLeagues.json";
 import dataSeasons from "../jsons/dataSeasons.json";
-import dataStandings from "../jsons/dataStandings.json";
-import dataFixturesRounds from "../jsons/dataFixturesRounds.json";
-import dataFixtures from "../jsons/dataFixtures.json";
-import dataFixturesCup from "../jsons/dataFixturesCup.json";
+// import dataStandings from "../jsons/dataStandings.json";
+// import dataFixturesRounds from "../jsons/dataFixturesRounds.json";
+// import dataFixtures from "../jsons/dataFixtures.json";
+// import dataFixturesCup from "../jsons/dataFixturesCup.json";
 
 const ApiContext = createContext();
 
@@ -21,15 +22,14 @@ const ApiProvider = ({ children }) => {
     const [selectedDate, setSelectedDate] = useState(new Date());
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
+
     const resetSidebar = () => {
         setIsSidebarOpen(!isSidebarOpen);
     }
 
-
     const resetDate = (date) => {
         setSelectedDate(date);
     };
-
 
     const fetchDataCountries = () => {
         // getCountries()
@@ -69,15 +69,38 @@ const ApiProvider = ({ children }) => {
         setApiDataSeasons(dataSeasons)
     };
 
+    const fetchDataFixtures = (date) => {
+        getFixtures(date)
+            .then(res => {
+                setApiDataFixtures(res.response)
+            })
+            .catch(err => {
+                if (err.response && err.response.status === 429) {
+                    window.location.href = "/error-429";
+                } else {
+
+                    console.error(err);
+                }
+                // setApiDataFixtures(dataFixtures);
+                // console.error(err);
+            });
+    };
+
     const fetchDataStandings = (id) => {
         getStandings(id)
             .then(res => {
                 setApiDataStandings(res.response)
             })
             .catch(err => {
-                const result = dataStandings.filter(data => data.league.id == id);
-                setApiDataStandings(result);
-                console.error(err);
+                if (err.response && err.response.status === 429) {
+                    window.location.href = "/error-429";
+                } else {
+
+                    console.error(err);
+                }
+                // const result = dataStandings.filter(data => data.league.id == id);
+                // setApiDataStandings(result);
+                // console.error(err);
             });
     };
 
@@ -87,22 +110,18 @@ const ApiProvider = ({ children }) => {
                 setApiDataFixturesRounds(res.response)
             })
             .catch(err => {
-                setApiDataFixturesRounds(dataFixturesRounds);
-                console.error(err);
+                if (err.response && err.response.status === 429) {
+                    window.location.href = "/error-429";
+                } else {
+
+                    console.error(err);
+                }
+                // setApiDataFixturesRounds(dataFixturesRounds);
+                // console.error(err);
             });
     };
 
-    const fetchDataFixtures = (date) => {
-        getFixtures(date)
-            .then(res => {
-                setApiDataFixtures(res.response)
-            })
-            .catch(err => {
-                setApiDataFixtures(dataFixtures);
-                console.error(err);
-                console.log("hello")
-            });
-    };
+
 
     const fetchDataFixturesCup = (league, season) => {
         getFixturesCup(league, season)
@@ -110,8 +129,14 @@ const ApiProvider = ({ children }) => {
                 setApiDataFixturesCup(res.response)
             })
             .catch(err => {
-                setApiDataFixturesCup(dataFixturesCup);
-                console.error(err);
+                if (err.response && err.response.status === 429) {
+                    window.location.href = "/error-429";
+                } else {
+
+                    console.error(err);
+                }
+                // setApiDataFixturesCup(dataFixturesCup);
+                // console.error(err);
             });
     };
 
